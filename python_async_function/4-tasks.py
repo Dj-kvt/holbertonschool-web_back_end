@@ -7,7 +7,7 @@ task_wait_random = __import__('3-tasks').task_wait_random
 
 async def task_wait_n(n: int, max_delay: int) -> List[float]:
     """
-    Spawns task_wait_random n times with max_delay and returns list of delays in ascending order.
+    Spawns task_wait_random n times with max_delay and returns list float
 
     """
     delays: List[float] = []
@@ -18,7 +18,8 @@ async def task_wait_n(n: int, max_delay: int) -> List[float]:
         delays.append(delay)
 
     # Launch all tasks concurrently using task_wait_random
-    tasks = [asyncio.create_task(collect(task_wait_random(max_delay))) for _ in range(n)]
+    tasks = [asyncio.create_task(
+        collect(task_wait_random(max_delay))) for _ in range(n)]
 
     # Wait for all the wrapped collector coroutines to finish
     for task in tasks:
