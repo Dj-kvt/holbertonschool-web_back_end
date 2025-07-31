@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-This module defines a function that returns the length of elements in a sequence.
+This module defines a function that returns the length of elements sequence
 """
 
 from typing import List, Tuple, Iterable, Sequence
