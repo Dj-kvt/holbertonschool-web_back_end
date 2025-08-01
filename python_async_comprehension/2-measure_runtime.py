@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Coroutine that measures runtime of running async_comprehension 4 times in parallel.
+Coroutine that measures runtime of running async_comprehension 4 times
 """
 
 import asyncio
