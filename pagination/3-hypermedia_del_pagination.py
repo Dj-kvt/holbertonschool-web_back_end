@@ -52,7 +52,8 @@ class Server:
             data.append(indexed_data[current_index])
             current_index += 1
             # Skip any missing index due to deletion
-            while current_index not in indexed_data and current_index < max(indexed_data.keys()) + 1:
+            while current_index not in indexed_data and current_index < max(
+                indexed_data.keys()) + 1:
                 current_index += 1
 
         next_index = current_index if current_index < max(indexed_data.keys()) + 1 else None
