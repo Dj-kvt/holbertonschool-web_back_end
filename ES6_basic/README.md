@@ -1,0 +1,1 @@
+that's the readme for the project ES6 Basics javascript
