@@ -1,47 +1,49 @@
-// 9-hoisting.js
+export class HolbertonClass {
+  constructor(year, location) {
+    this._year = year;
+    this._location = location;
+  }
+
+  get year() {
+    return this._year;
+  }
+
+  get location() {
+    return this._location;
+  }
+}
 
 export class StudentHolberton {
-  constructor(firstName, lastName) {
+  constructor(firstName, lastName, holbertonClass) {
     this._firstName = firstName;
     this._lastName = lastName;
+    this._holbertonClass = holbertonClass;
   }
 
-  toString() {
+  get fullName() {
     return `${this._firstName} ${this._lastName}`;
   }
-}
 
-export default class HolbertonCourse {
-  constructor(name, length, students) {
-    // Type checks
-    if (typeof name !== 'string') throw new TypeError('Name must be a string');
-    if (typeof length !== 'number') throw new TypeError('Length must be a number');
-    if (!Array.isArray(students) || !students.every(s => s instanceof StudentHolberton)) {
-      throw new TypeError('Students must be an array of StudentHolberton');
-    }
-
-    this._name = name;
-    this._length = length;
-    this._students = students;
+  get holbertonClass() {
+    return this._holbertonClass;
   }
 
-  get name() { return this._name; }
-  set name(value) {
-    if (typeof value !== 'string') throw new TypeError('Name must be a string');
-    this._name = value;
-  }
-
-  get length() { return this._length; }
-  set length(value) {
-    if (typeof value !== 'number') throw new TypeError('Length must be a number');
-    this._length = value;
-  }
-
-  get students() { return this._students; }
-  set students(value) {
-    if (!Array.isArray(value) || !value.every(s => s instanceof StudentHolberton)) {
-      throw new TypeError('Students must be an array of StudentHolberton');
-    }
-    this._students = value;
+  get fullStudentDescription() {
+    return `${this._firstName} ${this._lastName} - ` +
+           `${this._holbertonClass.year} - ` +
+           `${this._holbertonClass.location}`;
   }
 }
+
+const class2019 = new HolbertonClass(2019, 'San Francisco');
+const class2020 = new HolbertonClass(2020, 'San Francisco');
+
+const student1 = new StudentHolberton('Guillaume', 'Salva', class2020);
+const student2 = new StudentHolberton('John', 'Doe', class2020);
+const student3 = new StudentHolberton('Albert', 'Clinton', class2019);
+const student4 = new StudentHolberton('Donald', 'Bush', class2019);
+const student5 = new StudentHolberton('Jason', 'Sandler', class2019);
+
+const listOfStudents = [student1, student2, student3, student4, student5];
+
+export default listOfStudents;
