@@ -38,8 +38,8 @@ app.get('/', (req, res) => {
 
 app.get('/students', async (req, res) => {
   try {
-    const data = await countStudents(process.argv[2]);
-    res.send(`This is the list of our students\n${data}`);
+    const output = await countStudents(process.argv[2]);
+    res.send(`This is the list of our students\n${output}`);
   } catch (err) {
     res.status(500).send('Cannot load the database');
   }
